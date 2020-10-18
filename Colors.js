@@ -228,11 +228,11 @@ function colorClear(evt) {
 		
 		//set button status and maintain inverse relationship
 		if(knownClear[color]) {
-			$(evt.target).addClass("confirmationSelected");
-			$(p).removeClass("confirmationSelected");
+			$(evt.target).addClass("clearSelected");
+			$(p).removeClass("imposterSelected");
 		}
 		else {
-			$(evt.target).removeClass("confirmationSelected");
+			$(evt.target).removeClass("clearSelected");
 		}
 		
 		updateSelectionOdds();
@@ -252,11 +252,11 @@ function imposter(evt) {
 		
 		//set button status and maintain inverse relationship
 		if(knownImposter[color]) {
-			$(evt.target).addClass("confirmationSelected");
-			$(p).removeClass("confirmationSelected");
+			$(evt.target).addClass("imposterSelected");
+			$(p).removeClass("clearSelected");
 		}
 		else {
-			$(evt.target).removeClass("confirmationSelected");
+			$(evt.target).removeClass("imposterSelected");
 		}
 		
 		
@@ -270,10 +270,10 @@ function dead(evt) {
 		knownDead[color] = !knownDead[color];
 		
 		if(knownDead[color]) {
-			$(evt.target).addClass("confirmationSelected");
+			$(evt.target).addClass("deadSelected");
 		}
 		else {
-			$(evt.target).removeClass("confirmationSelected");
+			$(evt.target).removeClass("deadSelected");
 		}
 		
 		updateSelectionOdds();
@@ -327,6 +327,7 @@ function updateOdds(color) {
 
 function calculateOdds(color) {
 	var totalUnknown = 0;
+	var aliveCount = 0;
 	var totalImpostersUnknown = imposterCount;
 	
 	for(var i = 0; i < topColorButtonSelections.length; i++) {
@@ -338,6 +339,14 @@ function calculateOdds(color) {
 		if(!knownDead[col] && !knownClear[col] && !knownImposter[col]) {
 			totalUnknown++;
 		}
+		
+		if(!knownDead[col]) {
+			aliveCount++;
+		}
+	}
+	
+	if(aliveCount <= 4) {
+		totalImpostersUnknown = 1;
 	}
 	
 	if(knownClear[color]) {

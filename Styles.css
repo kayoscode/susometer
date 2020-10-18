@@ -88,14 +88,27 @@
 	
 	-webkit-transition: .2s;
 	transition: opacity 1;
+	transition: background-color white;
 }
 
 .subColorButtonMe {
 	opacity: .4;
 }
 
-.confirmationSelected {
-	opacity: .4;
+.clearSelected {
+	background-color: lime;
+}
+
+.imposterSelected {
+	background-color: #FF0000;
+}
+
+.deadSelected {
+	background-color: gray;
+}
+
+.meSelected {
+	opacity: .5;
 }
 
 .red {
