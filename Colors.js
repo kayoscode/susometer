@@ -182,9 +182,21 @@ function colorClear(evt) {
 	if(gameStarted) {
 		var color = getColorFromConfirmationButton(evt.target);
 		
+		var p = evt.target.parentElement;
+		p = p.getElementsByClassName("setImposter")[0];
+		
 		//toggle and maintain the inverse relationship between clear and imposter
 		knownClear[color] = !knownClear[color];
 		knownImposter[color] = false;
+		
+		//set button status and maintain inverse relationship
+		if(knownClear[color]) {
+			$(evt.target).addClass("confirmationSelected");
+			$(p).removeClass("confirmationSelected");
+		}
+		else {
+			$(evt.target).removeClass("confirmationSelected");
+		}
 		
 		updateSelectionOdds();
 	}
@@ -194,9 +206,22 @@ function imposter(evt) {
 	if(gameStarted) {
 		var color = getColorFromConfirmationButton(evt.target);
 		
+		var p = evt.target.parentElement;
+		p = p.getElementsByClassName("setClear")[0];
+		
 		//toggle and maintain the inverse relationship between clear and imposter
 		knownImposter[color] = !knownImposter[color];
 		knownClear[color] = false;
+		
+		//set button status and maintain inverse relationship
+		if(knownImposter[color]) {
+			$(evt.target).addClass("confirmationSelected");
+			$(p).removeClass("confirmationSelected");
+		}
+		else {
+			$(evt.target).removeClass("confirmationSelected");
+		}
+		
 		
 		updateSelectionOdds();
 	}
@@ -206,6 +231,13 @@ function dead(evt) {
 	if(gameStarted) {
 		var color = getColorFromConfirmationButton(evt.target);
 		knownDead[color] = !knownDead[color];
+		
+		if(knownDead[color]) {
+			$(evt.target).addClass("confirmationSelected");
+		}
+		else {
+			$(evt.target).removeClass("confirmationSelected");
+		}
 		
 		updateSelectionOdds();
 	}
@@ -226,6 +258,9 @@ function setMyColor(color) {
 			$(colorButtons[i]).removeAttr("disabled");
 			$(colorButtons[i]).removeClass("subColorButtonMe");
 		}
+		
+		var meButton = el.getElementsByClassName("setMe");
+		$(meButton).removeClass("confirmationSelected");
 	}
 	
 	//disable color buttons
@@ -235,6 +270,9 @@ function setMyColor(color) {
 	for(var i = 0; i < colorButtons.length; i++) {
 		colorButtons[i].disabled = "true";
 		$(colorButtons[i]).addClass("subColorButtonMe");
+		
+		var meButton = el.getElementsByClassName("setMe");
+		$(meButton).addClass("confirmationSelected");
 	}
 	
 	me = color;
@@ -253,7 +291,6 @@ function updateOdds(color) {
 function calculateOdds(color) {
 	var totalUnknown = 0;
 	var totalImpostersUnknown = imposterCount;
-	console.log(imposterCount);
 	
 	for(var i = 0; i < topColorButtonSelections.length; i++) {
 		var col = topColorButtonSelections[i];
