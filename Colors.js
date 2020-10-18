@@ -183,6 +183,7 @@ function setMyColor(color) {
 		var colorButtons = el.getElementsByClassName("subColorButton");
 		for(var i = 0; i < colorButtons.length; i++) {
 			$(colorButtons[i]).removeAttr("disabled");
+			$(colorButtons[i]).removeClass("subColorButtonMe");
 		}
 	}
 	
@@ -192,6 +193,7 @@ function setMyColor(color) {
 	var colorButtons = el.getElementsByClassName("subColorButton");
 	for(var i = 0; i < colorButtons.length; i++) {
 		colorButtons[i].disabled = "true";
+		$(colorButtons[i]).addClass("subColorButtonMe");
 	}
 	
 	me = color;
