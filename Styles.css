@@ -1,0 +1,133 @@
+.slideContainer {
+	width: 150px;
+}
+.slider {
+	-webkit-appearance: none;
+	appearance: none;
+	height: 25px; 
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+}
+
+.confirmation {
+	width: 100px;
+	height: 40px;
+	border: none;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 5px;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #4CAF50;
+	cursor: pointer;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.shown {
+	display: inline-block !important;
+}
+
+.colorButton {
+	width: 100px;
+	height: 55px;
+	border: 2px outset;	
+	font-weight: bold;
+	font-size: 30px;
+	text-align: center;
+	display: inline-block;
+	opacity: .6;
+	margin-top: 10px;
+}
+
+.colorButtonSelected {
+	opacity: 1;
+}
+
+.subColorButtons {
+	display: none;
+}
+
+.subColorButtonsSelected {
+	display: inline-block;
+}
+
+.subColorButton {
+	width: 80px;
+	height: 40px;
+	border: none;
+	display: inline-block;
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 5px;
+}
+
+.red {
+	background-color: #c51111;
+}
+
+.blue {
+	background-color: #132ed1;
+}
+
+.green {
+	background-color: #117f2d;
+}
+
+.pink {
+	background-color: #ed54ba;
+}
+
+.orange {
+	background-color: #ef7d0d;
+}
+
+.yellow {
+	background-color: #ffff00;
+}
+
+.black {
+	background-color: #3f474e;
+}
+
+.white {
+	background-color: #d6e0f0;
+}
+
+.purple {
+	background-color: #6b2bbb;
+}
+
+.brown {
+	background-color: #71491e;
+}
+
+.cyan {
+	background-color: cyan;
+}
+
+.lime {
+	background-color: #50ef39;
+}

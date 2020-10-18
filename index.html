@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html style="background-color: tan">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="Styles.css">
+		<script src="Colors.js"></script>
+	</head>
+	<body>
+		<h1>SUSOMETER</h1>
+		<div class="topColors">
+			<h2>Choose colors</h2>
+			
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('red')" class="colorButton red"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider"  disabled>
+				</span>
+				<button onclick="selectTopColor('blue')" class="colorButton blue"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('green')" class="colorButton green"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('lime')" class="colorButton lime"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('pink')" class="colorButton pink"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('orange')" class="colorButton orange"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('yellow')" class="colorButton yellow"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('black')" class="colorButton black"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear()" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('white')" class="colorButton white"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('purple')" class="colorButton purple"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('brown')" class="colorButton brown"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+			<div>
+				<span class="slideContainer">
+					<input type="range" min="0" max="100" value="50" class="slider" disabled>
+				</span>
+				<button onclick="selectTopColor('cyan')" class="colorButton cyan"></button>
+				<span class="subColorButtons">
+					<button class="subColorButton red">NA</button>
+					<button class="subColorButton blue">NA</button>
+					<button class="subColorButton green">NA</button>
+					<button class="subColorButton lime">NA</button>
+					<button class="subColorButton pink">NA</button>
+					<button class="subColorButton orange">NA</button>
+					<button class="subColorButton yellow">NA</button>
+					<button class="subColorButton black">NA</button>
+					<button class="subColorButton white">NA</button>
+					<button class="subColorButton purple">NA</button>
+					<button class="subColorButton brown">NA</button>
+					<button class="subColorButton cyan">NA</button>
+					<button onclick="clear(event)" style="margin-left: 100px;" class="confirmation">Clear</button>
+					<button onclick="imposter(event)" class="confirmation">Imp</button>
+					<button onclick="dead(event)" class="confirmation">Dead</button>
+					<button onclick="setMe(event)" class="confirmation">Me</button>
+				</span>
+			</div>
+		</div>
+		<button onclick="startGame(event)" style="font-size: 45px; width: 400px; margin-top: 10px;">Start Game</button>
+	</body>
+</html>
