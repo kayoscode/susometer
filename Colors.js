@@ -61,7 +61,16 @@ function selectTopColor(color) {
 			var el2 = el.getElementsByClassName(difference[j])[0];
 			$(el2).addClass("hidden");
 			$(el2).removeClass("shown");
-		}
+		}	
+	}
+	
+	updateSelectionOdds();
+}
+
+function updateSelectionOdds() {
+	for(var i = 0; i < topColorButtonSelections.length; i++) {
+		var odds = calculateOdds(topColorButtonSelections[i]) * 100;
+		$(topColorButtonElements[topColorButtonSelections[i]]).text(odds.toFixed(2));
 	}
 }
 
@@ -70,9 +79,8 @@ function addTopButtonSelection(color) {
 		return false;
 	}
 	
-	$(topColorButtonElements[color]).addClass("colorButtonSelected");
-	$(topColorButtonElements[color]).text("0%");
 	
+	$(topColorButtonElements[color]).addClass("colorButtonSelected");
 	$(topColorButtonElements[color].parentElement).find(".subColorButtons").addClass("subColorButtonsSelected");
 	
 	return true;
@@ -197,4 +205,8 @@ function setMyColor(color) {
 	}
 	
 	me = color;
+}
+
+function calculateOdds(color) {
+	return 1 / (topColorButtonSelections.length);
 }
