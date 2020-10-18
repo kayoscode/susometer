@@ -15,6 +15,8 @@ var knownClear = {};
 var knownImposter = {};
 var knownDead = {};
 
+var allColorSusLevels = {};
+
 function chooseDefaultColors() {
 	for(var i = 0; i < defaultColors.length; i++) {
 		selectTopColor(defaultColors[i]);
@@ -35,13 +37,48 @@ $(function() {
 	initTopColorButtonElements();
 	chooseDefaultColors();
 	
-	//initialize known maps
+	//initialize known maps and color sus levels
 	for(var i = 0; i < allColors.length; i++) {
 		knownClear[allColors[i]] = false;
 		knownImposter[allColors[i]] = false;
 		knownDead[allColors[i]] = false;
+		
+		allColorSusLevels[allColors[i]] = {};
+		for(var j = 0; j < allColors.length; j++) {
+			allColorSusLevels[allColors[i]][allColors[j]] = 0;
+		}
+	}
+	
+	//initialize funtion calls for sub buttons
+	var subColorButtons = document.getElementsByClassName("subColorButton");
+	for(var i = 0; i < subColorButtons.length; i++) {
+		subColorButtons[i].onclick = updateSubColorButtonsSus;
 	}
 });
+
+function getColorOfSubButton(el) {
+	for(var i = 0; i < allColors.length; i++) {
+		var has = el.classList.contains(allColors[i]);
+		
+		if(has) {
+			return allColors[i];
+		}
+	}
+	
+	return "undefined";
+}
+
+function updateSubColorButtonsSus(e) {
+	if(gameStarted) {
+		var color = getColorFromConfirmationButton(e.target);
+		var buttonColor = getColorOfSubButton(e.target);
+		
+		if(color !== buttonColor) {
+			//set the sus status
+			console.log("set sus status");
+		}
+	}
+}
 
 function selectTopColor(color) {
 	var index = topColorButtonSelections.indexOf(color);
