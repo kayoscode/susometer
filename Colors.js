@@ -4,9 +4,16 @@ var allColors = ["red", "blue", "green", "lime", "pink", "orange", "yellow", "bl
 var defaultColors = ["red", "blue", "green", "lime", "pink", "orange", "yellow", "black", "white", "purple"];
 var topColorButtonElements = {};
 var topColorButtonSelections = [];
+var allColorOdds = {};
+var imposterCountMap = [0, 0, 0, 1, 1, 1, 2, 2, 2, 2];
+var imposterCount = 0;
 
 var gameStarted = false;
+
 var me = "";
+var knownClear = {};
+var knownImposter = {};
+var knownDead = {};
 
 function chooseDefaultColors() {
 	for(var i = 0; i < defaultColors.length; i++) {
@@ -27,6 +34,13 @@ function initTopColorButtonElements() {
 $(function() {
 	initTopColorButtonElements();
 	chooseDefaultColors();
+	
+	//initialize known maps
+	for(var i = 0; i < allColors.length; i++) {
+		knownClear[allColors[i]] = false;
+		knownImposter[allColors[i]] = false;
+		knownDead[allColors[i]] = false;
+	}
 });
 
 function selectTopColor(color) {
@@ -68,8 +82,10 @@ function selectTopColor(color) {
 }
 
 function updateSelectionOdds() {
+	updateAllOdds();
+	
 	for(var i = 0; i < topColorButtonSelections.length; i++) {
-		var odds = calculateOdds(topColorButtonSelections[i]) * 100;
+		var odds = allColorOdds[topColorButtonSelections[i]] * 100;
 		$(topColorButtonElements[topColorButtonSelections[i]]).text(odds.toFixed(2));
 	}
 }
@@ -126,6 +142,8 @@ function startGame(el) {
 	}
 	
 	gameStarted = true;
+	imposterCount = imposterCountMap[topColorButtonSelections.length - 1];
+	updateSelectionOdds();
 }
 
 function endGame(el) {
@@ -160,21 +178,36 @@ function getColorFromConfirmationButton(el) {
 	return "red";
 }
 
-function clear(evt) {
+function colorClear(evt) {
 	if(gameStarted) {
 		var color = getColorFromConfirmationButton(evt.target);
+		
+		//toggle and maintain the inverse relationship between clear and imposter
+		knownClear[color] = !knownClear[color];
+		knownImposter[color] = false;
+		
+		updateSelectionOdds();
 	}
 }
 
 function imposter(evt) {
 	if(gameStarted) {
 		var color = getColorFromConfirmationButton(evt.target);
+		
+		//toggle and maintain the inverse relationship between clear and imposter
+		knownImposter[color] = !knownImposter[color];
+		knownClear[color] = false;
+		
+		updateSelectionOdds();
 	}
 }
 
 function dead(evt) {
 	if(gameStarted) {
 		var color = getColorFromConfirmationButton(evt.target);
+		knownDead[color] = !knownDead[color];
+		
+		updateSelectionOdds();
 	}
 }
 
@@ -207,6 +240,41 @@ function setMyColor(color) {
 	me = color;
 }
 
+function updateAllOdds() {
+	for(var i = 0; i < allColors.length; i++) {
+		updateOdds(allColors[i]);
+	}
+}
+
+function updateOdds(color) {
+	allColorOdds[color] = calculateOdds(color);
+}
+
 function calculateOdds(color) {
-	return 1 / (topColorButtonSelections.length);
+	var totalUnknown = 0;
+	var totalImpostersUnknown = imposterCount;
+	console.log(imposterCount);
+	
+	for(var i = 0; i < topColorButtonSelections.length; i++) {
+		var col = topColorButtonSelections[i];
+		if(knownImposter[col]) {
+			totalImpostersUnknown--;
+		}
+		
+		if(!knownDead[col] && !knownClear[col] && !knownImposter[col]) {
+			totalUnknown++;
+		}
+	}
+	
+	if(knownClear[color]) {
+		return 0;
+	}
+	else if(knownImposter[color]) {
+		return 1;
+	}
+	else {
+		return totalImpostersUnknown / totalUnknown;
+	}
+	
+	return 1;
 }
