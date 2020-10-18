@@ -1,4 +1,5 @@
 var maxColors = 10;
+var minColors = 1;
 var allColors = ["red", "blue", "green", "lime", "pink", "orange", "yellow", "black", "white", "purple", "brown", "cyan"];
 var defaultColors = ["red", "blue", "green", "lime", "pink", "orange", "yellow", "black", "white", "purple"];
 var topColorButtonElements = {};
@@ -78,7 +79,7 @@ function addTopButtonSelection(color) {
 }
 
 function removeTopButtonSelection(color) {
-	if(topColorButtonSelections.length <= 0) {
+	if(topColorButtonSelections.length <= minColors) {
 		return false;
 	}
 	
@@ -86,6 +87,16 @@ function removeTopButtonSelection(color) {
 	$(topColorButtonElements[color]).text("");
 	
 	$(topColorButtonElements[color].parentElement).find(".subColorButtons").removeClass("subColorButtonsSelected");
+	
+	//make sure that removing the element doesn't invalidate the 'me' variable
+	if(color === me) {
+		for(var i = 0; i < topColorButtonSelections.length; i++) {
+			if(topColorButtonSelections[i] !== me) {
+				setMyColor(topColorButtonSelections[i]);
+				break;
+			}
+		}
+	}
 	
 	return true;
 }
